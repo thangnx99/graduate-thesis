@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Điều khiển bằng tay{% endblock %}
+
+{% block content %}
+
+<!-- control section start -->
+
+<section class="control" id="control">
+
+    <h1 class="heading">điều khiển <span>Bằng tay</span></h1>
+
+    <div class="box-container" id="box-control">
+
+        <div class="row">
+            <a href="/up">
+                <img src="static/images/up.png" alt="">
+            </a>
+        </div>
+
+        <div class="row">
+            <a href="/turn-left">
+                <img src="static/images/turn_left.png" alt="">
+            </a>
+            <a href="/stop">
+                <img src="static/images/stop.png" alt="">
+            </a>
+            <a href="/turn-right">
+                <img src="static/images/turn_right.png" alt="">
+            </a>
+        </div>
+
+        <div class="row">
+            <a href="/back">
+                <img src="static/images/back.png" alt="">
+            </a>  
+        </div>
+
+    </div>
+
+    <p class="messege-busy" id="messege-busy">Xe đang bận, vui lòng thử lại sau</p>
+
+    <button onclick="stopUpdate();" style="float:right">Stop</button>
+
+</section>
+
+<!-- control section end -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+    var intervalID = setInterval(update_values, 1000);
+
+    function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_data-control',
+
+        function(data) {
+            if (data.isControl){
+                $('#box-control').show();
+                $('#messege-busy').hide();
+            }
+            else {
+                $('#box-control').hide();
+                $('#messege-busy').show();
+            }
+            console.log(data)
+        });   
+    };
+    
+    function stopUpdate() {
+        clearInterval(intervalID);
+    }
+    
+</script>
+
+{% endblock %}

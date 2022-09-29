@@ -1,0 +1,50 @@
+.control .box-container .row a img {
+    box-sizing: border-box;
+    width: 15rem;
+    height: 15rem;
+    object-fit: contain;
+    background: #ccc;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+  
+.control .box-container .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.control .box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+
+
+
+
+
+/* media queries */
+@media (max-width: 1200px) {
+    
+}
+
+
+@media (max-width: 992px) {
+
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {
+    .control .box-container .row a img {
+        width: 12rem;
+        height: 12rem;
+    }
+}

@@ -1,0 +1,21 @@
+.import .info {
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.import .info p {
+    margin: 2rem;
+}
+
+.message-busy {
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 25% 0;
+    color: white;
+    padding: 2rem;
+    background: red;
+    border-radius: 4rem;
+}

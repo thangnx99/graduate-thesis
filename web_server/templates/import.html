@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Nhập kho{% endblock %}
+
+{% block content %}
+
+<!-- import section start -->
+
+<section class="import">
+
+    <h1 class="heading">chế độ<span> nhập kho</span></h1>
+
+    <!-- phần hiển thị điều chỉnh và thông báo nhập hàng
+    sử dụng biến isimport để kiểm tra -->
+    <!-- nếu isimport bằng true thì người dùng có thể tùy chỉnh
+    nếu isimport bằng false thì hiển thị đang bận -->
+    <div class="info" id="info">
+        <p>Trạng thái: <span id="status">Chưa có dữ liệu</span></p>
+    
+        <p>Mã hàng: <span id="Ma_hang">Chưa có dữ liệu</span></p>
+    
+        <p>Tình trạng hàng: <span id="hasGoods">Chưa có dữ liệu</span></p>
+    </div>
+    <!-- info div end -->
+
+    <p class="message-busy" id="message-busy">Xe đang bận, vui lòng thử lại sau</p>
+
+    <button onclick="stopUpdate();" style="float:right">Stop</button>
+
+</section>
+    
+    
+<!-- import section end -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+    var intervalID = setInterval(update_values, 1000);
+
+    function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_data-import',
+
+        function(data) {
+            if (data.isImport) {
+                $('#info').show();
+                $('#message-busy').hide();
+                $('#Ma_hang').text(data.Ma_hang);
+                if (data.hasGoods) {
+                    $('#status').text("Hoạt động");
+                    $('#hasGoods').text("Có");
+                }
+                else {
+                    $('#status').text("Chờ hàng");
+                    $('#hasGoods').text("Không có");
+                }
+            }
+            else {
+                $('#info').hide();
+                $('#message-busy').show();
+            }
+            console.log(data)
+        });   
+    };
+    
+    function stopUpdate() {
+        clearInterval(intervalID);
+    }
+    
+</script>
+
+
+{% endblock %}

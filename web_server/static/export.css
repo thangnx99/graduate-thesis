@@ -1,0 +1,44 @@
+.infor {
+    margin: 1.5rem;
+}
+
+.infor-btn {
+    font-size: 3rem;
+    background: #57e757;
+    color: white;
+    padding: 0.5rem 2.5rem;
+    border-radius: 2.3rem;
+}
+
+select.infor-value {
+    font-size: 3rem;
+    border-radius: 1.3rem;
+}
+
+form {
+    font-size: 3rem;
+    display: contents;
+    text-align: center;
+    border-bottom: 2rem solid black;
+}
+
+.status {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.status p {
+    margin: 1.5rem;
+}
+
+.message-busy {
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 25% 0;
+    color: white;
+    padding: 2rem;
+    background: red;
+    border-radius: 4rem;
+}

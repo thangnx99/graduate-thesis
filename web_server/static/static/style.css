@@ -1,0 +1,170 @@
+@import url(info.css);
+
+@import url(sensor.css);
+
+@import url(control.css);
+
+
+
+
+@font-face {
+  font-family: wght;
+  src: url(Nunito/Nunito-VariableFont_wght.ttf);
+}
+
+
+:root {
+--grey-color: #ddd;
+--milky-color: #eee;
+--red-color: #d03434;
+--yellow-color: #f4ea36;
+--blue-color: #368df4;
+--orange-color: #f6a90c;
+}
+
+
+* {
+  font-family: wght;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+  color: black;
+  flex-wrap: wrap;
+}
+
+
+
+section {
+  margin: 2rem;
+}
+
+.heading span {
+  color: var(--red-color);
+}
+
+.heading {
+  text-align: center;
+  font-size: 4.5rem;
+  border-bottom: 0.2rem solid var(--grey-color);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  padding-left: 25%;
+  background: var(--milky-color);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background: var(--grey-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+header .home img {
+  display: block;
+  width: 85%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 2rem;
+  margin: 0 2rem;
+}
+
+header .home p.post {
+  font-size: 2.5rem;
+}
+
+header .home h3.project {
+  font-size: 4rem;
+}
+
+header nav {width: 100%;}
+
+header nav ul li {
+  list-style: none;
+  font-size: 2rem;
+  background: #ccc;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries */
+
+@media (max-width:1200px) {
+
+  html {font-size: 55%}
+
+}
+
+@media (max-width:992px) {
+
+  html {font-size: 52%}
+
+}
+
+@media (max-width:768px) {
+
+  body {padding: 0}
+
+  header {
+    position: relative;
+    width: 100%; height: auto;
+  }
+
+  header .home img {display: none; }
+
+  header nav {width: auto;}
+
+  header nav ul {display: flex; }
+
+  header nav ul li {
+    list-style: none;
+    font-size: 2rem;
+    background: #ccc;
+    margin: 1rem;
+    padding: 0.5rem 2.5rem;
+    border-radius: 2rem;
+  }
+
+}
+
+@media (max-width:576px) {
+
+  .heading {font-size: 3.5rem; }
+
+}

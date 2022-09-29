@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}Xuất kho{% endblock %}
+
+{% block content %}
+
+<!-- export section start -->
+
+<section class="export">
+
+    <h1 class="heading">chế độ<span> xuất kho</span></h1>
+
+    <!-- phần hiển thị điều chỉnh và thông báo xuất hàng
+    sử dụng biến isExport để kiểm tra -->
+    <!-- nếu isExport bằng true thì người dùng có thể tùy chỉnh
+    nếu isExport bằng false thì hiển thị đang bận -->
+    <div class="export" id="export">
+
+        <form action="#" method="post" id="form">
+            <div class="infor">Trạng thái: Chờ lệnh</div>
+    
+            <div class="infor">
+                <span class="infor-title">Hàng xuất:</span>
+                <select name="Ma_hang" class="infor-value">
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                </select>
+            </div>
+    
+            <div class="infor">
+                <span class="infor-title">Số lượng:</span>
+                <select name="So_luong" class="infor-value">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+    
+            <div class="infor">
+                <button type="submit" class="infor-btn">Gửi</button>
+            </div>
+        </form>
+    
+        <div class="status" id="status">
+            <p>Trạng thái: Hoạt động</p>
+    
+            <p>Hàng xuất: <span id="Ma_hang">Chưa có dữ liệu</span></p>
+    
+            <p>Số lượng còn: <span id="So_luong">Chưa có dữ liệu</span></p>
+        </div>
+
+    </div>
+    <!-- export div end -->
+
+    <p class="message-busy" id="message-busy">Xe đang bận, vui lòng thử lại sau</p>
+
+    <button onclick="stopUpdate();" style="float:right">Stop</button>
+
+</section>
+    
+    
+<!-- export section end -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+    var intervalID = setInterval(update_values, 1000);
+
+    function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_data-export',
+
+        function(data) {
+            if (data.isExport){
+                $('#export').show();
+                $('#message-busy').hide();
+                
+                if (data.isDelivery){
+                $('#form').hide();
+                $('#status').show();
+                $('#So_luong').text(data.count);
+                $('#Ma_hang').text(data.index);
+                }
+                else{ 
+                    $('#form').show();
+                    $('#status').hide();
+                }
+            }
+            else{
+                $('#export').hide();
+                $('#message-busy').show();
+            }     
+            console.log(data)
+        });   
+    };
+    
+    function stopUpdate() {
+        clearInterval(intervalID);
+    }
+    
+</script>
+
+
+{% endblock %}

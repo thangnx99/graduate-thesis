@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<!-- sensor section start -->
+
+<section class="sensor" id="sensor">
+
+    <h1 class="heading">thông tin <span>cảm biến</span></h1>
+
+    <div class="box-container">
+
+        <div class="box box-humi">
+            <b><big>độ ẩm</big></b>
+            <p class="value" id="humi">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+        <div class="box box-temp">
+            <b><big>nhiệt độ</big></b>
+            <p class="value" id="temp">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+        <div class="box box-lamp">
+            <b><big>đèn</big></b>
+            <p class="value" id="lamp">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+        <div class="box box-pin">
+            <b><big>pin</big></b>
+            <p class="value" id="pin">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+        <div class="box box-distance">
+            <b><big>Tốc độ</big></b>
+            <p class="value" id="distance">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+        <div class="box box-hasgoods">
+            <b><big>Tình trạng hàng</big></b>
+            <p class="value" id="hasgoods">
+                Chưa có dữ liệu
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<button onclick="stopUpdate();" style="float:right">Stop</button>
+
+<!-- sensor section start -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+    var intervalID = setInterval(update_values, 1000);
+
+    function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_data-sensor',
+                
+        function(data) {
+            $('#temp').text(data.temp +"°C");
+            $('#humi').text(data.humi + "%");
+            $('#lamp').text(data.lamp);
+            $('#pin').text(data.pin + "%");
+            $('#distance').text(data.distance + " %");
+            $('#hasgoods').text(data.hasgoods);
+            console.log(data)
+        });      
+    };
+    
+    function stopUpdate() {
+        clearInterval(intervalID);
+    }
+    
+</script>
+
+{% endblock %}

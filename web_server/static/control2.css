@@ -1,0 +1,259 @@
+body{
+    box-sizing: border-box;
+}
+.header-title{
+    text-align: center;
+    font-size: 50px;
+}
+
+.box-container{
+    display: flex;
+    justify-content: center;
+}
+.radio-chose{
+    font-size: 30px; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.chose-1{
+    position: relative;
+}
+.chose {
+    /* background-color: bisque; */
+    margin-top: 20px;
+    height: 60px;
+    width: 250px;
+    border: 2px solid #d03434;
+    border-radius: 5px;
+    margin: 0 15px;
+}
+
+#chose1:checked ~ .radio-chose{
+    background-color: #d03434;
+    color: white;
+    
+}
+#chose2:checked ~ .radio-chose{
+    background-color:#d03434;
+    color: white;
+
+    
+}
+ 
+
+.mode{
+    display: flex;
+
+}
+/* .box{display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    z-index: 3;
+    background: black;
+    transform: translateX(100%);
+    transition: ease-in .4s;
+    opacity: 0;
+
+}
+#chose2:checked ~ .box{
+    transform: translateX(0);
+    opacity: 1
+} */
+
+.auto{
+    display: flex;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    top: 80px;
+    left: -150px;
+    transform: translateY(10%);
+    transition: ease-in .4s;
+    opacity: 0;
+ 
+}
+.select-choose{
+    font-size: 25px; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+#select1:checked ~ .select-choose{
+    background-color: green;
+    color: white;
+}
+#select2:checked ~ .select-choose{
+    background-color: green;
+    color: white;
+}
+.auto-choose{
+    display: flex;
+    height: 50px;
+    width: 200px;
+    border: 2px solid green;
+    border-radius: 5px;
+    margin: 0 15px;
+    
+}
+#chose1:checked ~ .auto{
+    transform: translateY(0);
+    opacity: 1
+}
+.auto-choose{
+    position: relative;
+}
+
+
+/* Điều khiển bằng tay */
+.handle-button{
+    position: relative;
+    top:100px;
+    left: -125px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: ease-in .5s;
+    opacity: 0;
+}
+#chose2:checked ~ .handle-button{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.handle-button .row a img {
+    box-sizing: border-box;
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+    background: #ccc;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+ .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.import{
+    position: absolute;
+    top: 50px;
+    left: -8vh;
+    height: 38vh;
+    width: 24vw;
+    /* background-color: #ccc; */
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: none;
+    animation: liner linear .5s;
+   
+}
+#select1:checked ~ .import{
+    display: block;
+    transition: linear .4s;
+}
+
+.infor-title{
+    font-size: 25px;
+    margin: 20px 20px;
+    line-height: 40px;
+
+}
+.infor-value{
+    font-size: 25px;
+    padding: 5px 10px;
+    border: 2px solid #555;
+}
+.infor{
+    margin: 20px 0 20px 20px
+    
+}
+
+.export{
+    position: absolute;
+    top: 100px;
+    left: -8vh;
+    height: 38vh;
+    width: 24vw;
+    /* background-color: #ccc; */
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: none;
+    animation: liner linear .5s;
+
+}
+#select2:checked ~ .export{
+    display: block;
+    transition: linear .5s;
+}
+.infor-value-1{
+    font-size: 18px;
+}
+.infor-input{
+    width: 50px;
+    font-size: 18px;
+    margin-left: 10px;
+
+}
+.infor-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infor button{
+    display: inline-block;
+  padding: 0 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+}
+.infor button:hover {background-color: #3e8e41}
+.infor button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+@keyframes liner {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.export-2{
+    display: none
+}
+
+
+.input-btn{
+    position: absolute;
+    top:221px;
+    z-index: 4;
+    height: 35px;
+    width: 80px;
+}
+#btn:checked ~ .export-2{
+    display: block;
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %} {% endblock %}</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+
+
+  <body>
+    <!-- header section start -->
+    
+    <header>
+
+      <a href="https://www.hust.edu.vn/" target="_blank">
+        <img src="static/images/logoHust.png" alt="" class="logo-hust">
+      </a>
+
+      <a class="home" href="/home">
+        
+        <img src="static/images/pig.png" alt="">
+        <h3 class="project">xe tự hành</h3>
+        <p class="post">đồ án tốt nghiệp</p>
+      </a>
+    
+      <nav>
+        <ul>
+          <li> <a href="/sensor">cảm biến</a> </li>
+          <li> <a href="/control">điều khiển bằng tay</a> </li>
+          <li> <a href="/export">Chế độ xuất kho</a> </li>
+          <li> <a href="/import">Chế độ nhập kho</a> </li>
+        </ul>
+      </nav>
+
+    </header>
+    
+    <!-- header section end -->
+
+    <!-- block start -->
+    {% block content %} {% endblock %}
+    <!-- block end -->
+    
+      
+  </body>
+
+</html>

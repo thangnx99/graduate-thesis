@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='control2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header-title">Lựa chọn chế độ điều khiển</h1>
+    </div>
+    <div class="box-container">
+        <div class="mode">
+            <div class="chose chose-1">
+                <input  type="radio" id="chose1" name="mode" value="1" hidden >
+                <label class="radio-chose" for="chose1">Chế độ tự động</label><br>
+                <div class="auto">
+                    <div class="auto-1 auto-choose">
+                        <input type="radio" id="select1" name="select" value="1" hidden>
+                        <label for="select1" class="select-choose">Lưu kho</label>
+                        <div class="import">
+                            <div class="infor">
+                                <span class="infor-title">Hàng:</span>
+                                <span class="infor-value">Có</span>
+                            </div>
+                            <div class="infor">
+                                <span class="infor-title">Mã hàng:</span>
+                                <span class="infor-value">03</span>
+                            </div>
+                            <div class="infor">
+                                <span class="infor-title">Số hàng đã chuyển:</span>
+                                <span class="infor-value">10</span>
+                            </div>
+                            <div class="infor">
+                                <span class="infor-title">Trạng thái:</span>
+                                <span class="infor-value">Hoạt động</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="auto-2 auto-choose">
+                        <form action="#" method="post">    
+                            <input type="radio" id="select2" name="select" value="2" hidden>
+                            <label for="select2" class="select-choose">Xuất kho</label>
+                            <div class="export">
+                                <div class="infor">
+                                    <span class="infor-title">Hàng xuất:</span>
+                                    <select name="Ma_hang" id="" class="infor-value-1">
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                    </select>
+                                </div>
+                                <div class="infor">
+                                    <span class="infor-title">Số lượng:</span>
+                                    <select name="So_luong" id="" class="infor-value-2">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="7">8</option>
+                                        <option value="7">9</option>
+                                    </select>
+                                </div>
+                                <div class="infor">
+                                    <span class="infor-title">Trạng thái:</span>
+                                    <span class="infor-value">Chờ lệnh</span>
+                                </div>
+                                <div class="infor infor-btn">
+                                        
+                                        <label for="btn" class="btn-select">
+                                            <button type="submit" class="infor-title" >
+                                                Gửi
+                                            </button>
+                                        </label>
+                                </div>
+                            </div>
+                        </form>
+                        <div class=" export-2">
+                            <div class="infor">
+                                <span class="infor-title">Hàng xuất:</span>
+                                <select name="" id="" class="infor-value-1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                            <div class="infor">
+                                <span class="infor-title">Số lượng còn:</span>
+                                <input type="number" name="" id="" class="infor-input">
+                            </div>
+                            <div class="infor">
+                                <span class="infor-title">Trạng thái:</span>
+                                <span class="infor-value">Hoạt động</span>
+                            </div>
+                            <div class="infor infor-btn">
+                                <button class="infor-title">
+                                    Dừng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            <div class="chose chose-2">
+                <input type="radio" id="chose2" name="mode" value="2" hidden >
+                <label class="radio-chose" for="chose2">Chế độ thủ công</label>
+                <div class="handle-button">
+
+                    <div class="row">
+                        <a href="/up">
+                            <img src="static/images/up.png" alt="">
+                        </a>
+                    </div>
+            
+                    <div class="row">
+                        <a href="/turn-left">
+                            <img src="static/images/turn_left.png" alt="">
+                        </a>
+                        <a href="/stop">
+                            <img src="static/images/stop.png" alt="">
+                        </a>
+                        <a href="/turn-right">
+                            <img src="static/images/turn_right.png" alt="">
+                        </a>
+                    </div>
+            
+                    <div class="row">
+                        <a href="/back">
+                            <img src="static/images/back.png" alt="">
+                        </a>  
+                    </div>
+                    
+            
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+:root {
+    --grey-color: #ddd;
+}
+
+
+
+
+.info .content {
+    margin: 1rem;
+    border-bottom: 0.2rem solid var(--grey-color);
+    padding-bottom: 1rem;
+}
+
+.info .content p {
+    font-size: 2.5rem;
+    text-indent: 5rem;
+    text-transform: none;
+  }
+
+.info .member .box {
+    width: 22%;
+    height: auto;
+    box-sizing: border-box;
+    margin: 1rem;
+    font-size: 1.65rem;
+  }
+  
+.info .member .box img {
+    width: 70%;
+    height: auto;
+    border-radius: 20%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 0.7rem solid var(--grey-color);
+}
+
+.info .member .box-master {
+    width: 100%;
+    display: flex;
+}
+
+.info .member .box-master img {
+    width: 20%;
+    height: auto;
+    border-radius: 20%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 0.7rem solid var(--grey-color);
+}
+
+.info .member .box-master .member-content {
+    width: 75%;
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    margin-top: 1.5rem;
+}
+
+.info .member {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+p.member-text {
+    text-transform: none;
+}
+
+
+
+
+
+/* media queries */
+@media (max-width: 1200px) {
+    
+}
+
+
+@media (max-width: 992px) {
+
+}
+
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 576px) {
+    .info .content p { font-size: 2rem}
+
+    .info .member .box {
+        width: 100%;
+        position:relative;
+    }
+
+    .info .box-master {
+        position: relative;
+        padding-left: 3rem;
+        margin: 2.5rem auto;
+    }
+
+    .info .member .box img {
+        width: 15rem;
+        position: absolute;
+        top: 0rem;
+        left: -1rem;
+    }
+
+    .info .member .box-master img {
+        width: 17rem;
+        position: absolute;
+        top: 0;
+        left: -1rem;
+    }
+
+    .info .member .box-master .member-content {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .info .member .box .member-text {padding-left:17rem}
+
+    .info .box-master .member-text {padding-left:16rem}
+}
